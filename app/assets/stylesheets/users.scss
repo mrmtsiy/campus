@@ -1,15 +1,58 @@
 // Place all the styles related to the users controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.breadcrumb {
-  li {
-    a {
-      color: rgb(0, 0, 0);
+.user-index {
+  width: 80%;
+  margin: 20px auto;
+
+  .content {
+    p {
+      color: #000;
     }
-    
   }
-}
+
 
 .index-container {
   margin: 40px;
 }
+}
+
+
+.user-edit-container {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+
+  .edit-profile-image {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+.user-show {
+  width: 80%;
+  margin: 20px auto;
+  
+  .breadcrumb {
+    li {
+      a {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
+.image.is-128x128 {
+  height: 128px;
+  margin: 30px auto -5px;
+  width: 100px;
+}
+
+  .card{
+    a {
+      margin: 10px;
+    }
+
+    }
+  }

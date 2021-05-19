@@ -1,2 +1,53 @@
-edit画面
+<div class="user-edit-container">
+  <div class="edit-profile-image">
+    <figure class="image is-128x128">
+      <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+    </figure>
+  </div>
+
+  <div class="field">
+    <label class="label">ユーザー名</label>
+    <div class="control">
+      <input class="input" type="text" placeholder="name">
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">Email</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input" type="email" placeholder="Email">
+      <span class="icon is-small is-left">
+        <i class="fas fa-envelope"></i>
+      </span>
+    </div>
+  </div>
+
+  <div class="field">
+    <label class="label">キャンプ歴</label>
+    <div class="control has-icons-left has-icons-right">
+      <input class="input" type="number" placeholder="歴数を書いてね">
+      <span class="icon is-small is-left">
+        <i class="fas fa-fire"></i>
+      </span>
+    </div>
+    年
+  </div>
+
+  <div class="field">
+    <label class="label">フリースペース</label>
+    <div class="control">
+      <textarea class="textarea" placeholder="好きな事を自由に書いてね！""></textarea>
+    </div>
+  </div>
+
+
+  <div class="field is-grouped">
+    <div class="control">
+      <button class="button is-link">更新する</button>
+    </div>
+    <div class="control">
+      <%= link_to "戻る" , :back , {class: "button is-link is-light"} %>
+    </div>
+  </div>
+</div>
 

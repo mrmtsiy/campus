@@ -16,6 +16,13 @@
 
 @import "bulma";
 
+#error_explanation {
+    background-color: rgb(245, 245, 245);
+    margin-bottom: 25px;
+    color: #ec4f4f;
+    padding: 10px;
+}
+
 .notice {
   background-color: rgb(102, 180, 243);
   color: #fff;
@@ -27,4 +34,49 @@
   color: #fff;
   text-align: center;
   padding: 10px;
+}
+
+.navbar-brand {
+
+  .navbar-item {
+    i {
+      margin-right: 5px;
+    }
+  }
+}
+
+.footer {
+  margin-top: 150px;
+}
+
+.hero-body {
+  background-color: #fff;
+  .container {
+    .title {
+      color: #000;
+    }
+  }
+}
+
+.user-edit-container {
+  width: 80%;
+  display: flex;
+  margin: 0 auto;
+  flex-direction: column;
+
+  .edit-profile-image {
+    margin-top: 30px;
+    display: flex;
+    justify-content: center;
+  }
+  .field {
+    input {
+      width: 100%;
+      height: 30px;
+      border-color: #b5b5b5;
+      border-radius: 5px;
+      border: 1px solid #dbdbdb;
+      background-color: #dbdbdb1f;
+    }
+  }
 }
