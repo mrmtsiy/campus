@@ -1,0 +1,34 @@
+<div class="post-edit-container">
+    <div class="post-image">
+      <figure class="image is-128x128">
+        <%= image_tag @post.post_image %>
+      </figure>
+    </div>
+  <%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
+
+    <div class="field">
+      <%= f.label :title %><br />
+      <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :content %><br />
+      <%= f.text_area :content, autofocus: true, autocomplete: "content", row: 5 %>
+    </div>
+
+
+    <div class="actions">
+      <%= f.submit "更新する", class: "button is-info" %>
+    </div>
+    <br>
+    <%= link_to "戻る", :back %>
+  <% end %>
+</div>
+
+
+<div class="user-destroy">
+  <h3>投稿記事を削除する</h3>
+
+  <p><%= button_to "削除", post_path(@post.id), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete, class: "button is-danger" %></p>
+
+</div>

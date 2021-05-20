@@ -1,0 +1,62 @@
+<div class="post-index">
+  <% @posts.each do |post| %>
+    <div class="box">
+    <%= link_to post_path(post.id) do%>
+      <article class="media">
+      <% if post.post_image.attached? %>
+        <div class="media-left">
+          <figure class="image">
+            <%= image_tag post.post_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0") %>
+          </figure>
+        </div>
+      <% end %>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong><%= post.title %></strong> <small><%= post.title %></small>
+              <hr>
+              <%= post.content %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <a class="level-item" aria-label="reply">
+                <span class="icon is-small">
+                  <i class="fas fa-reply" aria-hidden="true"></i>
+                </span>
+              </a>
+              <a class="level-item" aria-label="retweet">
+                <span class="icon is-small">
+                  <i class="fas fa-retweet" aria-hidden="true"></i>
+                </span>
+              </a>
+              <a class="level-item" aria-label="like">
+                <span class="icon is-small">
+                  <i class="fas fa-heart" aria-hidden="true"></i>
+                </span>
+              </a>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+    <% end %>
+  <% end %>
+
+
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
+    <a class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li>
+        <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 2">2</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 3">3</a>
+      </li>
+    </ul>
+  </nav>
+</div>
