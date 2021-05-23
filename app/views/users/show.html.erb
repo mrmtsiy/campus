@@ -2,20 +2,20 @@
   <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
-          <a href="#">
+          <%= link_to user_path(current_user) do %>
             <span class="icon is-small">
               <i class="far fa-user-circle" aria-hidden="true"></i>
             </span>
             <span>プロフィール</span>
-          </a>
+          <% end %>
         </li>
         <li>
-          <a href="#">
+          <%= link_to posts_path do %>
             <span class="icon is-small">
               <i class="fas fa-camera-retro" aria-hidden="true"></i>
             </span>
             <span>写真</span>
-          </a>
+          <% end %>
         </li>
         <li>
           <a href="#">
@@ -38,9 +38,16 @@
 
     <hr>
 
-<figure class="image is-128x128">
-  <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-</figure>
+<% if @user.profile_image.attached? %>
+  <figure class="image is-128x128">
+    <%= image_tag @user.profile_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0") %>
+  </figure>
+<% else %>
+  <figure class="image is-128x128">
+    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+  </figure>
+<% end %>
+
 
 <div class="card">
   <div class="card-content">

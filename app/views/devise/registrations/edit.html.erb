@@ -1,24 +1,25 @@
 <div class="user-edit-container">
-    <div class="edit-profile-image">
-      <figure class="image is-128x128">
-        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-      </figure>
-    </div>
+
   <%= form_with model: @user, url: user_registration_path, id: 'new_user', class: 'new_user', local: true do |f| %>
     <%= render "devise/shared/error_messages", resource: resource %>
 
     <div class="field">
-      <%= f.label :username %><br />
+      <%= f.label :profile_image, "プロフィール画像" %><br />
+      <%= f.file_field :profile_image, autofocus: true, autocomplete: "profile_image" %>
+    </div>
+
+    <div class="field">
+      <%= f.label :username, "ユーザー名" %><br />
       <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
     </div>
 
     <div class="field">
-      <%= f.label :email %><br />
+      <%= f.label :email, "メールアドレス" %><br />
       <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
     </div>
 
     <div class="field">
-      <%= f.label :profile %><br />
+      <%= f.label :profile, "自己紹介" %><br />
       <%= f.text_area :profile, autofocus: true, autocomplete: "profile", rows: 5 %>
     </div>
 

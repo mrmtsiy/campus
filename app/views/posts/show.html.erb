@@ -2,12 +2,12 @@
   <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
-          <a href="#">
+          <%= link_to user_path(@user) do %>
             <span class="icon is-small">
               <i class="far fa-user-circle" aria-hidden="true"></i>
             </span>
-            <span>ユーザー名</span>
-          </a>
+            <span><%= @post.user.username %></span>
+          <% end %>
         </li>
       </ul>
     </nav>
@@ -50,7 +50,7 @@
     </div>
   </nav>
   <% if @user == current_user %>
-    <%= link_to '編集', edit_user_registration_path, {class: "button is-light"} %>
+    <%= link_to '編集', edit_post_path(@post), {class: "button is-light"} %>
   <% end %>
 </div>
 <br>

@@ -21,7 +21,7 @@ class Users::RegistrationsController < Devise::RegistrationsController
 
   # PUT /resource
   # def update
-  #   super
+  #   redirect_to user_path(current_user), notice: "アカウント情報を変更しました"
   # end
 
   # DELETE /resource
@@ -55,9 +55,14 @@ class Users::RegistrationsController < Devise::RegistrationsController
   #   super(resource)
   # end
 
+  def after_update_path_for(resource)
+    flash[:notice] = "アカウント情報を変更しました"
+    user_path(current_user)
+  end
+
   # The path used after sign up for inactive accounts.
   # def after_inactive_sign_up_path_for(resource)
-  #   super(resource)
+  #   user_path
   # end
 
   def update_resource(resource, params)

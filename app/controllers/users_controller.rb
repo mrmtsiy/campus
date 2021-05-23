@@ -11,10 +11,16 @@ before_action :find_user, only: [:edit, :show]
 
 
   def edit
-
+    
   end
 
-
+  def update
+    if @user.update(user_params)
+      redirect_to user_path, notice: "アカウント情報を変更しました"
+    else
+      render :edit
+    end
+  end
   private
     def find_user
       @user = User.find(params[:id])

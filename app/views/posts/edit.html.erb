@@ -1,3 +1,13 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        投稿編集画面
+      </h1>
+    </div>
+  </div>
+</section>
+
 <div class="post-edit-container">
     <div class="post-image">
       <figure class="image is-128x128">
@@ -29,6 +39,6 @@
 <div class="user-destroy">
   <h3>投稿記事を削除する</h3>
 
-  <p><%= button_to "削除", post_path(@post.id), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete, class: "button is-danger" %></p>
+  <p><%= link_to "削除", post_path(@post), data: { confirm: "本当に削除してよろしいですか?" }, method: :delete, class: "button is-danger" %></p>
 
 </div>
