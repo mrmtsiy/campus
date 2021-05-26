@@ -6,7 +6,7 @@ before_action :find_user, only: [:edit, :show]
   end
 
   def show
-  
+    @posts = @user.posts.order(created_at: :DESC)
   end
 
 

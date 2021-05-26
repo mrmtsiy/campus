@@ -1,4 +1,5 @@
 <div class="post-index">
+
   <% @posts.each do |post| %>
     <div class="box">
     <%= link_to post_path(post.id) do%>
@@ -14,6 +15,7 @@
           <div class="content">
             <p>
               <strong>@<%= post.user.username %></strong> <small><%= post.title %></small>
+              <small><%= time_ago_in_words(post.created_at) %>前</small>
               <hr>
               <%= post.content %>
             </p>
@@ -30,11 +32,24 @@
                   <i class="fas fa-retweet" aria-hidden="true"></i>
                 </span>
               </a>
-              <a class="level-item" aria-label="like">
-                <span class="icon is-small">
-                  <i class="fas fa-heart" aria-hidden="true"></i>
-                </span>
-              </a>
+              <% if current_user.already_liked?(post) %>
+                <%= button_to post_like_path(id: post.id, post_id: post.id), method: :delete do %>
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart like-btn" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                <% end %>
+              <% else %>
+                <%= button_to post_likes_path(post), method: :post do %>
+                  <a class="level-item" aria-label="like">
+                    <span class="icon is-small">
+                      <i class="fas fa-heart unlike-btn" aria-hidden="true"></i>
+                    </span>
+                  </a>
+                <% end %>
+              <% end %>
+              <%= post.liked_users.count %>
             </div>
           </nav>
         </div>

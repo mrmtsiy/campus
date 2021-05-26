@@ -1,11 +1,15 @@
 class PostsController < ApplicationController
 before_action :find_post, only: [:edit, :update, :show, :destroy]
+
   def index
-    @posts = Post.all
+    @posts = Post.all.order(created_at: :DESC)
+    time = Time.now
+    
   end
   
   def show
     @user = @post.user
+    @like = Like.new
   end
 
   def new

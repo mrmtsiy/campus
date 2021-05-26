@@ -30,6 +30,14 @@
     height: 128px;
   }
 
+  .breadcrumb {
+    li {
+      a {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
   .content {
     color: #000;
     padding-bottom: 32px;
@@ -45,9 +53,23 @@
   }
 
 
-.index-container {
-  margin: 40px;
-}
+  .index-container {
+    margin: 40px;
+  }
+
+  nav {
+    button {
+      border-style: none;
+      background-color: #fff;
+    }
+  }
+  .like-btn {
+      color: #ff2581;
+    }
+
+  .unlike-btn {
+    color:#8899a6;
+  }
 }
 
 
@@ -74,6 +96,19 @@
     }
 
     }
+    nav {
+      button {
+        border-style: none;
+        background-color: #fff;
+      }
+    }
+  .like-btn {
+      color: #ff2581;
+    }
+
+  .unlike-btn {
+    color:#8899a6;
+  }
 }
 
 .post-edit-container {

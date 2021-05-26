@@ -34,7 +34,41 @@
 .user-show {
   width: 80%;
   margin: 20px auto;
-  
+  p {
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .box {
+    .media-left {
+      .image {
+        img {
+          width: 128px;
+          height: 128px;
+        }
+      }
+    }
+    .media-content {
+      .content {
+        color: #000;
+      }
+    }
+
+    .like-btn {
+      color: #ff2581;
+    }
+
+    .unlike-btn {
+      color:#8899a6;
+    }
+  }
+
+  nav {
+    button {
+      border-style: none;
+      background-color: #fff;
+    }
+  }
+
   .breadcrumb {
     li {
       a {

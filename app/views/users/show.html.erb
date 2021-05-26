@@ -2,21 +2,14 @@
   <nav class="breadcrumb" aria-label="breadcrumbs">
       <ul>
         <li>
-          <%= link_to user_path(current_user) do %>
+          <%= link_to user_path(@user.id) do %>
             <span class="icon is-small">
               <i class="far fa-user-circle" aria-hidden="true"></i>
             </span>
             <span>プロフィール</span>
           <% end %>
         </li>
-        <li>
-          <%= link_to posts_path do %>
-            <span class="icon is-small">
-              <i class="fas fa-camera-retro" aria-hidden="true"></i>
-            </span>
-            <span>写真</span>
-          <% end %>
-        </li>
+
         <li>
           <a href="#">
             <span class="icon is-small">
@@ -26,12 +19,12 @@
           </a>
         </li>
         <li>
-          <a href="#">
+          <%= link_to post_like_path(@user) do %>
             <span class="icon is-small">
               <i class="fas fa-thumbs-up" aria-hidden="true"></i>
             </span>
             <span>いいね</span>
-          </a>
+          <% end %>
         </li>
       </ul>
     </nav>
@@ -65,6 +58,64 @@
     <%= link_to '編集', edit_user_registration_path, {class: "button is-light"} %>
   <% end %>
 </div>
+<hr>
+<p>投稿一覧</p>
+<% @posts.each do |post| %>
+  <div class="box">
+  <%= link_to post_path(post.id) do%>
+    <article class="media">
+    <% if post.post_image.attached? %>
+      <div class="media-left">
+        <figure class="image">
+          <%= image_tag post.post_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0") %>
+        </figure>
+      </div>
+    <% end %>
+      <div class="media-content">
+        <div class="content">
+          <p>
+            <strong>@<%= post.user.username %></strong> <small><%= post.title %></small>
+            <small><%= time_ago_in_words(post.created_at) %> ago</small>
+            <hr>
+            <%= post.content %>
+          </p>
+        </div>
+        <nav class="level is-mobile">
+          <div class="level-left">
+            <a class="level-item" aria-label="reply">
+              <span class="icon is-small">
+                <i class="fas fa-reply" aria-hidden="true"></i>
+              </span>
+            </a>
+            <a class="level-item" aria-label="retweet">
+              <span class="icon is-small">
+                <i class="fas fa-retweet" aria-hidden="true"></i>
+              </span>
+            </a>
+            <% if current_user.already_liked?(post) %>
+              <%= button_to post_like_path(id: post.id, post_id: post.id), method: :delete do %>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart like-btn" aria-hidden="true"></i>
+                  </span>
+                </a>
+              <% end %>
+            <% else %>
+              <%= button_to post_likes_path(post), method: :post do %>
+                <a class="level-item" aria-label="like">
+                  <span class="icon is-small">
+                    <i class="fas fa-heart unlike-btn" aria-hidden="true"></i>
+                  </span>
+                </a>
+              <% end %>
+            <% end %>
+            <%= post.liked_users.count %>
+          </div>
+        </nav>
+      </div>
+    </article>
+  </div>
+  <% end %>
+<% end %>
 
-  
 </div>

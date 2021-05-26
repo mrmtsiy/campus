@@ -1,0 +1,82 @@
+// Place all the styles related to the likes controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.like-index {
+  width: 80%;
+  margin: 20px auto;
+
+  .box {
+    margin-bottom: 20px;
+
+    .media-left {
+      display: flex;
+
+      .image {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .media-content {
+        .content {
+          margin: 0 auto;
+          width: 80%;
+
+          li {
+            list-style: none;
+            font-size: 20px;
+            padding-top: 18px;
+
+            p {
+              color: rgb(189, 189, 189);
+            }
+          }
+        }
+      }
+    }
+  }
+}
+
+.like-show {
+  width: 80%;
+  margin: 20px auto;
+
+  .box {
+    margin: 20px 0 20px 0;
+
+    .media-left {
+      display: flex;
+      .image {
+        img {
+          width: 128px;
+          height: 128px;
+        }
+      }
+    }
+    .media-content {
+      .content {
+        margin: 0 auto;
+        width: 80%;
+        color: #000;
+
+        li {
+          list-style: none;
+          font-size: 20px;
+          padding-top: 18px;
+
+          p {
+            color: rgb(189, 189, 189);
+          }
+        }
+      }
+    }
+
+    .like-btn {
+      color: #ff2581;
+    }
+
+    .unlike-btn {
+      color:#8899a6;
+    }
+  }
+}

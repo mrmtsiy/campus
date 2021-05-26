@@ -1,0 +1,30 @@
+<section class="hero is-info">
+  <div class="hero-body">
+    <div class="container">
+      <h1 class="title">
+        いいねした投稿
+      </h1>
+    </div>
+  </div>
+</section>
+<div class="like-show">
+  <% @liked_posts.each do |post| %>
+    <%= link_to post_path(post.id) do %>
+    <div class="box">
+      <div class="media-left">
+        <figure class="image">
+          <%= image_tag post.post_image %>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+            <li>
+              <%= post.title %>
+              <p><small><%= post.content %></small></p>
+            </li>
+          </div>
+        </div>
+      </div>
+    </div>
+    <% end %>
+  <% end %>
+</div>
