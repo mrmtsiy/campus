@@ -44,6 +44,16 @@ before_action :find_post, only: [:edit, :update, :show, :destroy]
     redirect_to posts_path, alert: "投稿を削除しました"
   end
 
+
+  def search
+    if params[:keyword].present?
+      @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%")
+      @keyword = params[:keyword]
+    else
+      @posts = Post.all
+    end
+  end
+  
   private
 
     def find_post

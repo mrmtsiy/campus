@@ -10,7 +10,7 @@ before_action :set_like, only: [:edit, :update, :index, :destory]
     @posts = @user.posts
     @liked_posts = @user.liked_posts
   end
-  
+
 
   def create
     @like = current_user.likes.create(post_id: params[:post_id])

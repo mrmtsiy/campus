@@ -25,6 +25,18 @@
 .post-index {
   width: 80%;
   margin: 20px auto;
+
+  .post-search {
+    form {
+      margin: 50px auto;
+      display: flex;
+      justify-content: center;
+
+      input#keyword {
+        width: 70%;
+      }
+    }
+  }
   .image {
     width: 128px;
     height: 128px;
