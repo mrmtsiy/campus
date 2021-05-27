@@ -74,8 +74,10 @@
       <div class="media-content">
         <div class="content">
           <p>
-            <strong>@<%= post.user.username %></strong> <small><%= post.title %></small>
-            <small><%= time_ago_in_words(post.created_at) %> ago</small>
+            <strong>@<%= post.user.username %></strong> <small>【<%= post.title %>】</small>
+            <div class="content-time">
+              <small><%= post.created_at.strftime('%Y/%m/%d') %> </small>
+            </div>
             <hr>
             <%= post.content %>
           </p>

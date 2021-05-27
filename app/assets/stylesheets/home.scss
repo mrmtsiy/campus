@@ -1,51 +1,63 @@
 // Place all the styles related to the home controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
-.top-container {
-  height: auto;
-  width: 100%;
+.home-index {
 
-  .top-container-image{
-    position: relative;
+  .top-container {
+    height: auto;
+    width: 100%;
 
-    .top-title {
-    color: #fff;
-    text-align: center;
-    font-weight: bold;
+    .top-container-image{
+      position: relative;
 
-    a {
-      background-color: #a1a088;
-      border-radius: 30px;
-      padding: 11px;
-      display: flex;
-      width: 60%;
-      margin: 20px auto;
-      justify-content: center;
+      .top-title {
       color: #fff;
+      text-align: center;
+      font-weight: bold;
+
+      a {
+        background-color: #a1a088;
+        border-radius: 30px;
+        padding: 11px;
+        display: flex;
+        width: 60%;
+        margin: 20px auto;
+        justify-content: center;
+        color: #fff;
+      }
     }
-  }
-  
-
-
     
 
-    h1 {
-      font-size: larger;
-      position: absolute;
-      top: 100px;
-      color: #fff;
-      left: 39px;
-      font-family: serif;
+
+      
+
+      h1 {
+        font-size: larger;
+        position: absolute;
+        top: 100px;
+        color: #fff;
+        left: 39px;
+        font-family: serif;
+      }
     }
   }
-}
 
-.top-description {
-  display: flex;
-  justify-content: space-around;
-  margin: 10px;
+  .top-description {
+    width: 80%;
+    margin: 70px auto 50px;
+    .description {
+      display: flex;
 
-  .image.is-128x128{
-    margin: 5px;
+      .image.is-128x128{
+        margin-right: 30px;
+      }
+
+      .card {
+        width: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+    }
   }
 }

@@ -15,7 +15,7 @@
         <div class="media-content">
           <div class="content">
             <p>
-              <strong>@<%= post.user.username %></strong> <small><%= post.title %></small>
+              <strong>@<%= post.user.username %></strong> <small>【<%= post.title %>】</small>
               <small><%= time_ago_in_words(post.created_at) %>前</small>
               <hr>
               <%= post.content %>

@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .user-index {
+  padding-top: 80px;
   width: 80%;
   margin: 20px auto;
 
@@ -12,13 +13,14 @@
   }
 
 
-.index-container {
-  margin: 40px;
+  .index-container {
+    margin: 40px;
 }
 }
 
 
 .user-edit-container {
+  padding-top: 80px;
   width: 80%;
   display: flex;
   margin: 0 auto;
@@ -32,11 +34,14 @@
 }
 
 .user-show {
+  padding-top: 80px;
   width: 80%;
   margin: 20px auto;
   p {
     margin-bottom: 20px;
-    font-weight: bold;
+    strong {
+      margin-right: 10px;
+    }
   }
   .box {
     .media-left {
@@ -50,6 +55,10 @@
     .media-content {
       .content {
         color: #000;
+
+        .content-time {
+          text-align: end;
+        }
       }
     }
 

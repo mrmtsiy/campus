@@ -2,6 +2,7 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
 .post-new-container {
+  padding-top: 80px;
   width: 80%;
   display: flex;
   margin: 0 auto;
@@ -23,6 +24,7 @@
 }
 
 .post-index {
+  padding-top: 80px;
   width: 80%;
   margin: 20px auto;
 
@@ -86,6 +88,7 @@
 
 
 .post-show {
+  padding-top: 80px;
   width: 80%;
   margin: 20px auto;
   
@@ -124,6 +127,7 @@
 }
 
 .post-edit-container {
+  padding-top: 80px;
   width: 80%;
   display: flex;
   margin: 0 auto;

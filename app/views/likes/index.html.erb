@@ -1,3 +1,5 @@
+<div class="like-index">
+
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
@@ -7,7 +9,7 @@
     </div>
   </div>
 </section>
-<div class="like-index">
+
   <% @post.liked_users.each do |user| %>
   <%= link_to user_path(user.id) do %>
   <div class="box">

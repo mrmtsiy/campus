@@ -1,46 +1,59 @@
-<div class="top-container">
-  <div class="top-container-image">
-  <img src="https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="camp">
-    <h1>私達のもうひとつのライフスタイル</h1>
-    <div class="top-title">
-    <% if user_signed_in? %>
-      <%= link_to "マイページへ", user_path(current_user) %>
-    <% else %>
-      <%= link_to "ログイン画面へ", new_user_session_path %>
-    <% end %>
-    </div>
-  </div>
-</div>
-<div class="top-description">
-  <figure class="image is-128x128">
-    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-    <div class="card">
-    <div class="card-content">
-      <div class="content">
-        <p>気になるギアで検索してみよう！</p>
+<div class="home-index">
+  <div class="top-container">
+    <div class="top-container-image">
+    <img src="https://images.pexels.com/photos/1687845/pexels-photo-1687845.jpeg?auto=compress&cs=tinysrgb&dpr=2&h=750&w=1260" alt="camp">
+      <h1>私達のもうひとつのライフスタイル</h1>
+      <div class="top-title">
+      <% if user_signed_in? %>
+        <%= link_to "マイページへ", user_path(current_user) %>
+      <% else %>
+        <%= link_to "ログイン画面へ", new_user_session_path %>
+      <% end %>
       </div>
     </div>
   </div>
-  </figure>
-  <figure class="image is-128x128">
-    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-    <div class="card">
-    <div class="card-content">
-      <div class="content">
-        <p>お気に入りのキャンパーさんをフォローして、投稿をチェックしてみよう！</p>
+  <div class="top-description">
+    <div class="description">
+      <figure class="image is-128x128">
+        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p>気になるギアで検索してみよう！</p>
+          </div>
+        </div>
       </div>
     </div>
   </div>
-  </figure>
-  <figure class="image is-128x128">
-    <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
-    <div class="card">
-    <div class="card-content">
-      <div class="content">
-        <p>おすすめのキャンプスポットを投稿してみよう！</p>
-      </div>
-    </div>
-  </div>
-  </figure>
-</div>
 
+  <div class="top-description">
+    <div class="description">
+      <figure class="image is-128x128">
+        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p>お気に入りのキャンパーさんをフォローして、投稿をチェックしてみよう！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="top-description">
+    <div class="description">
+      <figure class="image is-128x128">
+        <img class="is-rounded" src="https://bulma.io/images/placeholders/128x128.png">
+      </figure>
+      <div class="card">
+        <div class="card-content">
+          <div class="content">
+            <p>おすすめのキャンプスポットを投稿してみよう！</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

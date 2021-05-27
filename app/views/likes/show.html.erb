@@ -1,3 +1,5 @@
+<div class="like-show">
+
 <section class="hero is-info">
   <div class="hero-body">
     <div class="container">
@@ -7,7 +9,7 @@
     </div>
   </div>
 </section>
-<div class="like-show">
+
   <% @liked_posts.each do |post| %>
     <%= link_to post_path(post.id) do %>
     <div class="box">

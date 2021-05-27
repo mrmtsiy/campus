@@ -14,12 +14,15 @@
       <% if user_signed_in? %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
           <div class="navbar-item">
-            <%= link_to "投稿する", new_post_path, class: "navbar-item button is-warning is-light" %>
+            <small>ログイン中のユーザー @<%= current_user.username %></small> 
           </div>
 
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
+                <p class="control">
+                  <%= link_to "投稿する", new_post_path, class: "navbar-item button is-warning is-light" %>
+                </p>
                 <p class="control">
                   <%= link_to "タイムライン", posts_path , class: " button is-warning is-light" %>
                 </p>
@@ -27,7 +30,7 @@
                   <%= link_to "マイページ", user_path(current_user), class: "button is-warning is-light" %>
                 </p>
                 <p class="control">
-                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, class: "button is-warning is-light" %>
+                  <%= link_to "ログアウト", destroy_user_session_path, method: :delete, data: { confirm: "ログアウトしてもよろしいですか?" }, class: "button is-warning is-light" %>
                 </p>
               </div>
             </div>
@@ -35,10 +38,6 @@
         </div>
       <% else %>
         <div id="navbarExampleTransparentExample" class="navbar-menu">
-          <div class="navbar-item">
-            <%= link_to "投稿一覧", root_path, class: "navbar-item button is-warning is-light" %>
-          </div>
-          
           <div class="navbar-end">
             <div class="navbar-item">
               <div class="field is-grouped">
