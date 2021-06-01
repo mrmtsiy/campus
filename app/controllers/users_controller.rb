@@ -7,6 +7,8 @@ before_action :find_user, only: [:edit, :show]
 
   def show
     @posts = @user.posts.order(created_at: :DESC)
+    @followings = @user.followings
+    @followers = @user.followers
   end
 
 

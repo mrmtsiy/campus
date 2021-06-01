@@ -17,7 +17,7 @@
 
 
         <div class="field">
-          <%= f.label :username, class: "label" %>
+          <%= f.label :username, 'ユーザー名', class: "label" %>
           <p class="control has-icons-left">
             <%= f.text_field :username, autofocus: true, autocomplete: "username", :placeholder => "username", class: "input" %>
             <span class="icon is-small is-left">
@@ -27,7 +27,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :email, class: "label" %>
+          <%= f.label :email, 'メールアドレス', class: "label" %>
           <p class="control has-icons-left">
             <%= f.email_field :email, autofocus: true, autocomplete: "email", :placeholder => "email", class: "input" %>
             <span class="icon is-small is-left">
@@ -37,9 +37,9 @@
         </div>
 
         <div class="field">
-          <%= f.label :password, class: "label" %>
+          <%= f.label :password, '新規パスワード', class: "label" %>
           <% if @minimum_password_length %>
-          <em>(<%= @minimum_password_length %> characters minimum)</em>
+          <em>(<%= @minimum_password_length %> 文字以内)</em>
           <% end %>
           <p class="control has-icons-left">
           <%= f.password_field :password, autocomplete: "new-password", :placeholder => "password", class: "input" %>
@@ -50,7 +50,7 @@
         </div>
 
         <div class="field">
-          <%= f.label :password_confirmation, class: "label" %>
+          <%= f.label :password_confirmation, '確認用パスワード', class: "label" %>
           <p class="control has-icons-left">
             <%= f.password_field :password_confirmation, autocomplete: "new-password", :placeholder => "password confirmation", class: "input" %>
             <span class="icon is-small is-left">
@@ -60,9 +60,10 @@
         </div>
 
         <div class="actions">
-          <%= f.submit "Sign up", class: "button is-success" %>
+          <%= f.submit "新規登録", class: "button is-success" %>
         </div>
         <% end %>
+        <br>
         <%= render "devise/shared/links" %>
       </div>
     </div>

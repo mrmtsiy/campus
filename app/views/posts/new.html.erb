@@ -12,17 +12,17 @@
   <%= form_with model: @post, local: true do |f| %>
 
     <div class="field">
-      <%= f.label :post_image %><br />
+      <%= f.label :post_image, '投稿する画像' %><br />
       <%= f.file_field :post_image, autofocus: true, autocomplete: "post_image" %>
     </div>
 
     <div class="field">
-      <%= f.label :title %><br />
+      <%= f.label :title, 'タイトル' %><br />
       <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
     </div>
 
     <div class="field">
-      <%= f.label :content %><br />
+      <%= f.label :content, '内容' %><br />
       <%= f.text_area :content, autofocus: true, autocomplete: "content" %>
     </div>
 
@@ -32,7 +32,6 @@
       <%= f.submit "投稿する", class: "button is-info" %>
     </div>
   <% end %>
-
-
+<br>
   <%= link_to "戻る", :back %>
 </div>

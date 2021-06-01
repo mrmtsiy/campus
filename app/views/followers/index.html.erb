@@ -1,0 +1,34 @@
+<div class="follower-index">
+
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          現在のフォロワー数 <%= @followers.count %>人
+        </h1>
+      </div>
+    </div>
+  </section>
+
+  <% @followers.each do |user| %>
+  <%= link_to [user] do %>
+  <div class="box">
+    <% if user.profile_image.attached? %>
+      <div class="media-left">
+        <figure class="image">
+          <%= image_tag user.profile_image.variant(gravity: :center) %>
+        </figure>
+        <div class="media-content">
+          <div class="content">
+              <li>
+                @<%= user.username %>
+                <p><small><%= user.profile %></small></p>
+              </li>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <% end %>
+  <% end %>
+</div>

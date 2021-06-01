@@ -4,7 +4,11 @@ Rails.application.routes.draw do
       registrations: 'users/registrations'
     }
   root to: "home#index"
-  resources :users
+  resources :users do
+    resource :follow
+    resources :followings
+    resources :followers
+  end
   resources :posts do
     resources :likes, only: [:index, :show, :create, :destroy]
     collection do

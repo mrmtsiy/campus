@@ -83,6 +83,14 @@
       a {
         color: rgb(0, 0, 0);
       }
+      .following-count {
+        margin-left: 10px;
+        color: rgb(175, 175, 175);
+      }
+      .follower-count {
+        margin-left: 10px;
+        color: rgb(175, 175, 175);
+      }
     }
   }
 
@@ -102,4 +110,28 @@
     }
 
     }
+
+  .follow-button {
+    background-color: deepskyblue;
+    border-radius: 20px;
+    display: inline-block;
+    color: #fff;
+    padding: 5px;
+
+    a {
+      color: #fff;
+    }
   }
+
+  .unfollow-button {
+    background-color: rgb(117, 131, 136);
+    border-radius: 20px;
+    display: inline-block;
+    color: #fff;
+    padding: 5px;
+
+    a {
+      color: #fff;
+    }
+  }
+}

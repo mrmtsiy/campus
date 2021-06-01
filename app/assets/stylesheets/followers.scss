@@ -1,0 +1,39 @@
+// Place all the styles related to the followers controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+.follower-index {
+  padding-top: 80px;
+  width: 80%;
+  margin: 20px auto;
+
+  .box {
+    margin-bottom: 20px;
+
+    .media-left {
+      display: flex;
+
+      .image {
+        img {
+          width: 100px;
+          height: 100px;
+        }
+      }
+      .media-content {
+        .content {
+          margin: 0 auto;
+          width: 80%;
+
+          li {
+            list-style: none;
+            font-size: 20px;
+            padding-top: 18px;
+
+            p {
+              color: rgb(189, 189, 189);
+            }
+          }
+        }
+      }
+    }
+  }
+}

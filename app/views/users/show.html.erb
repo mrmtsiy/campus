@@ -11,13 +11,25 @@
         </li>
 
         <li>
-          <a href="#">
+          <%= link_to [@user, :followings] do %>
+            <span class="icon is-small">
+              <i class="far fa-address-book" aria-hidden="true"></i>
+            </span>
+            <span>フォロー中</span>
+            <span class="following-count"><%= @followings.count %>人</span>
+          <% end %>
+        </li>
+
+        <li>
+          <%= link_to [@user, :followers] do %>
             <span class="icon is-small">
               <i class="far fa-address-book" aria-hidden="true"></i>
             </span>
             <span>フォロワー</span>
-          </a>
+            <span class="follower-count"><%= @followers.count %>人</span>
+          <% end %>
         </li>
+
         <li>
           <%= link_to post_like_path(@user) do %>
             <span class="icon is-small">
@@ -30,6 +42,14 @@
     </nav>
 
     <hr>
+
+<% if user_signed_in? && current_user != @user %>
+  <% if current_user.active_relationships.exists?(target_user_id: @user.id) %>
+    <%= link_to 'フォローを解除する', [@user, :follow], method: :delete, class: "unfollow-button" %>
+  <% else %>
+    <%= link_to 'フォローする', [@user, :follow], method: :post, class: "follow-button" %>
+  <% end %>
+<% end %>
 
 <% if @user.profile_image.attached? %>
   <figure class="image is-128x128">

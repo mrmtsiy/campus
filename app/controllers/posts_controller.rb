@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
 before_action :find_post, only: [:edit, :update, :show, :destroy]
-
+before_action :move_to_index, only: [:edit, :update, :destory]
   def index
     @posts = Post.all.order(created_at: :DESC)
     time = Time.now
@@ -27,7 +27,7 @@ before_action :find_post, only: [:edit, :update, :show, :destroy]
   end
 
   def edit
-
+    
   end
 
   def update
@@ -64,6 +64,11 @@ before_action :find_post, only: [:edit, :update, :show, :destroy]
       params.require(:post).permit(:title, :content, :post_image, :user_id)
     end
 
+    def move_to_index
+      unless user_signed_in? == current_user
+        redirect_to root_path, alert: "他のユーザーの投稿を編集することはできません"
+    end
+  end
     # def user
     #   return User.find_by(id: self.user_id)
     # end
