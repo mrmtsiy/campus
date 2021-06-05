@@ -1,55 +1,16 @@
 <div class="post-index">
   <%= render 'shared/search' %>
-
-  <% @posts.each do |post| %>
-    <div class="box">
-    <%= link_to post_path(post.id) do%>
-      <article class="media">
-      <% if post.post_image.attached? %>
-        <div class="media-left">
+  <div class="post-container">
+    <% @posts.each do |post| %>
+      <%= link_to post_path(post.id) do%>
+        <% if post.post_image.attached? %>
           <figure class="image">
-            <%= image_tag post.post_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0") %>
+            <%= image_tag post.post_image.variant(gravity: :center, resize:"160x160^", crop:"160x160+0+0") %>
           </figure>
-        </div>
+        <% end %>
       <% end %>
-        <div class="media-content">
-          <div class="content">
-            <p>
-              <strong>@<%= post.user.username %></strong> <small>【<%= post.title %>】</small>
-              <small><%= time_ago_in_words(post.created_at) %>前</small>
-              <hr>
-              <%= post.content %>
-            </p>
-          </div>
-          <nav class="level is-mobile">
-            <div class="level-left">
-              <a class="level-item" aria-label="reply">
-                <span class="icon is-small">
-                  <i class="fas fa-reply" aria-hidden="true"></i>
-                </span>
-              </a>
-              <a class="level-item" aria-label="retweet">
-                <span class="icon is-small">
-                  <i class="fas fa-retweet" aria-hidden="true"></i>
-                </span>
-              </a>
-              <% if current_user.already_liked?(post) %>
-              <div class="like-link" id="like-link-<%= post.id %>">
-                <%= render 'shared/like', post: post %>
-              </div>
-              <% else %>
-              <div class="like-link" id="like-link-<%= post.id %>">
-                <%= render 'shared/unlike', post: post %>
-              </div>
-              <% end %>
-              <%= post.liked_users.count %>
-            </div>
-          </nav>
-        </div>
-      </article>
-    </div>
     <% end %>
-  <% end %>
+  </div>
 
 
   <nav class="pagination" role="navigation" aria-label="pagination">

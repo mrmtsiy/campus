@@ -39,9 +39,14 @@
       }
     }
   }
+  .post-container {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+  }
   .image {
-    width: 128px;
-    height: 128px;
+    width: 100px;
+    margin: 5px;
   }
 
   .breadcrumb {
@@ -109,8 +114,11 @@
     a {
       margin: 10px;
     }
-
+    .level.is-mobile {
+      justify-content: flex-end;
+      margin-right: 20px;
     }
+  }
     nav {
       button {
         border-style: none;
@@ -141,5 +149,76 @@
       height: auto;
       width: 100%;
     }
+  }
+}
+
+.post-timeline {
+  padding-top: 80px;
+  width: 80%;
+  margin: 20px auto;
+
+  .post-search {
+    form {
+      margin: 50px auto;
+      display: flex;
+      justify-content: center;
+
+      input#keyword {
+        width: 70%;
+      }
+    }
+  }
+  .image {
+    width: 128px;
+    height: 128px;
+  }
+
+  .breadcrumb {
+    li {
+      a {
+        color: rgb(0, 0, 0);
+      }
+    }
+  }
+
+  .content {
+    color: #000;
+    padding-bottom: 32px;
+    hr {
+      margin-top: -10px;
+    }
+  }
+
+  .content {
+    p {
+      color: #000;
+    }
+  }
+
+
+  .index-container {
+    margin: 40px;
+  }
+
+  nav {
+    button {
+      border-style: none;
+      background-color: #fff;
+    }
+    .level-left {
+      .comment-button {
+        margin-right: 15px;
+      }
+      .retweet-button {
+        margin-right: 6px;
+      }
+    }
+  }
+  .like-btn {
+      color: #ff2581;
+    }
+
+  .unlike-btn {
+    color:#8899a6;
   }
 }

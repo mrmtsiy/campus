@@ -1,0 +1,80 @@
+<div class="post-timeline">
+  <section class="hero is-info">
+    <div class="hero-body">
+      <div class="container">
+        <h1 class="title">
+          フォローしているユーザーの記事
+        </h1>
+      </div>
+    </div>
+  </section>
+  <% @posts.each do |post| %>
+    <div class="box">
+    <%= link_to post_path(post.id) do%>
+      <article class="media">
+      <% if post.post_image.attached? %>
+        <div class="media-left">
+          <figure class="image">
+            <%= image_tag post.post_image.variant(gravity: :center, resize:"640x640^", crop:"640x640+0+0") %>
+          </figure>
+        </div>
+      <% end %>
+        <div class="media-content">
+          <div class="content">
+            <p>
+              <strong>@<%= post.user.username %></strong> <small><%= post.title %></small>
+              <small><%= time_ago_in_words(post.created_at) %>前</small>
+              <hr>
+              <%= post.content %>
+            </p>
+          </div>
+          <nav class="level is-mobile">
+            <div class="level-left">
+              <div class="comment-button">
+                <%= link_to new_post_comment_path(post) do %>
+                  <i class="far fa-comment" aria-hidden="true"></i>
+                <% end %>
+                <%= post.comments.count %>
+              </div>
+
+              <div class="retweet-button">
+                <%= link_to new_post_comment_path(post) do %>
+                  <i class="fas fa-retweet" aria-hidden="true"></i>
+                <% end %>
+              </div>
+
+              <% if current_user.already_liked?(post) %>
+              <div class="like-link" id="like-link-<%= post.id %>">
+                <%= render 'shared/like', post: post %>
+              </div>
+              <% else %>
+              <div class="like-link" id="like-link-<%= post.id %>">
+                <%= render 'shared/unlike', post: post %>
+              </div>
+              <% end %>
+              <%= post.liked_users.count %>
+            </div>
+          </nav>
+        </div>
+      </article>
+    </div>
+    <% end %>
+  <% end %>
+
+
+  <nav class="pagination" role="navigation" aria-label="pagination">
+    <a class="pagination-previous" title="This is the first page" disabled>Previous</a>
+    <a class="pagination-next">Next page</a>
+    <ul class="pagination-list">
+      <li>
+        <a class="pagination-link is-current" aria-label="Page 1" aria-current="page">1</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 2">2</a>
+      </li>
+      <li>
+        <a class="pagination-link" aria-label="Goto page 3">3</a>
+      </li>
+    </ul>
+  </nav>
+</div>

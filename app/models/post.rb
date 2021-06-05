@@ -1,8 +1,11 @@
 class Post < ApplicationRecord
   has_one_attached :post_image
   belongs_to :user
+#いいね機能の関連付け
   has_many :likes, dependent: :destroy
   has_many :liked_users, through: :likes, source: :user
+#コメント機能の関連付け
+  has_many :comments, dependent: :destroy
 
   validates :title, presence: true
   validates :content, presence: true

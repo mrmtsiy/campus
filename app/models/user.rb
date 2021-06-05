@@ -16,6 +16,8 @@ class User < ApplicationRecord
   has_many :followings, through: :active_relationships, source: :target_user
   has_many :followers, through: :passive_relationships, source: :user
 
+#コメント機能の関連付け
+  has_many :comments, dependent: :destroy
 
   validates :username, presence: true
   validates :email, presence: true

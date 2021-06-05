@@ -10,6 +10,8 @@ before_action :move_to_index, only: [:edit, :update, :destory]
   def show
     @user = @post.user
     @like = Like.new
+    @comment = Comment.new
+    @comments = @post.comments.order(created_at: :desc)
   end
 
   def new
@@ -44,7 +46,10 @@ before_action :move_to_index, only: [:edit, :update, :destory]
     redirect_to posts_path, alert: "投稿を削除しました"
   end
 
-
+  def timeline
+    @posts = Post.where(user_id: [current_user.id, *current_user.following_ids]).order(created_at: :desc)
+  end
+  
   def search
     if params[:keyword].present?
       @posts = Post.where('title LIKE ?', "%#{params[:keyword]}%")

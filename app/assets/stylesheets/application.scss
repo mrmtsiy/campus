@@ -40,9 +40,12 @@
   position: fixed;
   width: 100%;
   top: 0;
+  display: block;
 
   .navbar-brand {
-
+    .navbar-end {
+      margin-left: auto;
+    }
   }
   .navbar-item {
     i {
@@ -50,6 +53,13 @@
     }
     small {
       color: #88888896;
+    }
+    p {
+      font-size: 23px;
+
+      a {
+        color: #000;
+      }
     }
   }
 }
@@ -95,6 +105,11 @@
       width: 100%;
     }
   }
+}
+
+.user-destroy {
+  text-align: end;
+  margin-right: 50px;
 }
 
 .forget-password {
