@@ -1,4 +1,14 @@
+
 <div class="comment-new">
+  <section class="hero is-info">
+      <div class="hero-body">
+        <div class="container">
+          <h1 class="title">
+            コメント投稿
+          </h1>
+        </div>
+      </div>
+    </section>
   <%= form_for [@post, @comment] do |f| %>
     <%= f.text_area :comment, size: "40x5" %>
     <%= f.submit '送信', class: "btn-sm btn-primary" %>

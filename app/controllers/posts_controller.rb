@@ -4,7 +4,10 @@ before_action :move_to_index, only: [:edit, :update, :destory]
   def index
     @posts = Post.all.order(created_at: :DESC)
     time = Time.now
-    
+    #タグの絞り込み
+    if params[:tag_name]
+      @posts = Post.tagged_with("#{params[:tag_name]}")
+    end
   end
   
   def show
@@ -66,11 +69,11 @@ before_action :move_to_index, only: [:edit, :update, :destory]
     end
 
     def post_params
-      params.require(:post).permit(:title, :content, :post_image, :user_id)
+      params.require(:post).permit(:title, :content, :post_image, :user_id, :tag_list)
     end
 
     def move_to_index
-      unless user_signed_in? == current_user
+      unless user_signed_in? && current_user
         redirect_to root_path, alert: "他のユーザーの投稿を編集することはできません"
     end
   end

@@ -117,3 +117,15 @@
   width: 80%;
   margin: 20px auto;
 }
+
+.posts-tag {
+  display: flex;
+  flex-wrap: wrap;
+
+  a {
+    color: #505050;
+    background-color: #e0e0e0;
+    border-radius: 10px;
+    margin-left: 3px;
+  }
+}

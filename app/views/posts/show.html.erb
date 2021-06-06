@@ -18,6 +18,10 @@
             <span>この投稿にいいねしたユーザー</span>
           <% end %>
         </li>
+
+        <li>
+          <%= render 'shared/tag_list', tag_list: @post.tag_list %>
+        </li>
       </ul>
     </nav>
 

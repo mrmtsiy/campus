@@ -53,6 +53,9 @@
       }
     }
     .media-content {
+      .comment-button {
+        margin-right: 20px;
+      }
       .content {
         color: #000;
 
@@ -60,6 +63,7 @@
           text-align: end;
         }
       }
+
     }
 
     .like-btn {

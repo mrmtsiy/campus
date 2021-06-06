@@ -26,6 +26,11 @@
       <%= f.text_area :content, autofocus: true, autocomplete: "content" %>
     </div>
 
+    <div class="field">
+      <%= f.label :tag_list, 'タグ' %><br />
+      <%= f.text_field :tag_list, value: @post.tag_list.join(','), placeholder: "「,」で区切ってください。 (例)camp,tent,gear" %>
+    </div>
+
 
 
     <div class="actions">

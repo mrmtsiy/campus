@@ -17,13 +17,18 @@
   <%= form_with model: @post, url: post_path(@post.id), local: true do |f| %>
 
     <div class="field">
-      <%= f.label :title %><br />
+      <%= f.label :title, 'タイトル' %><br />
       <%= f.text_field :title, autofocus: true, autocomplete: "title" %>
     </div>
 
     <div class="field">
-      <%= f.label :content %><br />
+      <%= f.label :content, '内容' %><br />
       <%= f.text_area :content, autofocus: true, autocomplete: "content", row: 5 %>
+    </div>
+
+    <div class="field">
+      <%= f.label :tag_list, 'タグ' %><br />
+      <%= f.text_field :tag_list, value: @post.tag_list.join(',') %>
     </div>
 
 

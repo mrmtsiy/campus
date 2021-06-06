@@ -1,5 +1,6 @@
 class Post < ApplicationRecord
   has_one_attached :post_image
+  acts_as_taggable
   belongs_to :user
 #いいね機能の関連付け
   has_many :likes, dependent: :destroy

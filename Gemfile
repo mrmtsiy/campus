@@ -64,3 +64,6 @@ gem 'image_processing', '~> 1.2'
 #カテゴリー
 gem 'ancestry'
 gem 'rails_admin'
+
+#タグ付け機能
+gem 'acts-as-taggable-on'
