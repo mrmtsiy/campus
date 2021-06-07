@@ -2,11 +2,11 @@ class PostsController < ApplicationController
 before_action :find_post, only: [:edit, :update, :show, :destroy]
 before_action :move_to_index, only: [:edit, :update, :destory]
   def index
-    @posts = Post.all.order(created_at: :DESC)
+    @posts = Post.page(params[:page]).per(42).order('created_at DESC')
     time = Time.now
     #タグの絞り込み
     if params[:tag_name]
-      @posts = Post.tagged_with("#{params[:tag_name]}")
+      @posts = Post.tagged_with("#{params[:tag_name]}").page(params[:page]).per(42).order('created_at DESC')
     end
   end
   

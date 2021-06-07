@@ -67,3 +67,6 @@ gem 'rails_admin'
 
 #タグ付け機能
 gem 'acts-as-taggable-on'
+
+#ページネーション機能
+gem 'kaminari'
