@@ -14,7 +14,8 @@ class CommentsController < ApplicationController
     else
       @post_new = Post.new
       @comments = @post.comments
-      redirect_to new_post_path
+      flash[:alert] = "コメントを入力してください"
+      redirect_to new_post_comment_path
     end
   end
 

@@ -11,8 +11,8 @@ class User < ApplicationRecord
   has_many :liked_posts, through: :likes, source: :post
 
 #フォロー機能の関連付け
-  has_many :active_relationships, class_name: "Follow", foreign_key: "user_id"
-  has_many :passive_relationships, class_name: "Follow", foreign_key: "target_user_id"
+  has_many :active_relationships, class_name: "Follow", foreign_key: "user_id", dependent: :destroy
+  has_many :passive_relationships, class_name: "Follow", foreign_key: "target_user_id", dependent: :destroy
   has_many :followings, through: :active_relationships, source: :target_user
   has_many :followers, through: :passive_relationships, source: :user
 
@@ -20,9 +20,13 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
 
   validates :username, presence: true
-  validates :email, presence: true
+  validates :email, presence: true, uniqueness: true
   validates :profile, length: { maximum: 200 }
 
+  # ユーザーをフォロー
+  def follow(other_user)
+    active_relationships.create(target_user_id: other_user.id)
+  end
 
   def already_liked?(post)
     self.likes.exists?(post_id: post.id)

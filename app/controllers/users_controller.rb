@@ -12,9 +12,6 @@ before_action :find_user, only: [:edit, :show]
   end
 
 
-  def edit
-    
-  end
 
   def update
     if @user.update(user_params)
