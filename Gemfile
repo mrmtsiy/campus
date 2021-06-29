@@ -66,6 +66,7 @@ gem 'image_processing', '~> 1.2'
 
 #カテゴリー
 gem 'ancestry'
+#管理画面
 gem 'rails_admin'
 
 #タグ付け機能
