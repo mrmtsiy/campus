@@ -27,6 +27,7 @@ before_action :move_to_index, only: [:edit, :update, :destory]
     if @post.save
       redirect_to posts_path, notice: "投稿に成功しました"
     else
+      flash.now[:alert] = "必須項目を記入して下さい"
       render :new
     end
   end
@@ -39,6 +40,7 @@ before_action :move_to_index, only: [:edit, :update, :destory]
     if @post.update(post_params)
       redirect_to posts_path, notice: "投稿内容を変更しました"
     else
+      flash.now[:alert] = "タイトルと内容を記入してください"
       render :edit
     end
     
