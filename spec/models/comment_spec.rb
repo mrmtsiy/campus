@@ -9,8 +9,8 @@ RSpec.describe Comment, type: :model do
       it "コメント入力済みならパス" do
         expect(@comment).to be_valid
       end
-      it "200文字以内ならパス" do
-        @comment = build(:comment, comment: "a" * 200)
+      it "100文字以内ならパス" do
+        @comment = build(:comment, comment: "a" * 100)
         expect(@comment).to be_valid
       end
     end
@@ -21,8 +21,8 @@ RSpec.describe Comment, type: :model do
         @comment.valid?
         expect(@comment).to be_invalid
       end
-      it "201文字以上なら失敗" do
-        @comment = build(:comment, comment: "a" * 201)
+      it "101文字以上なら失敗" do
+        @comment = build(:comment, comment: "a" * 101)
         expect(@comment).to be_invalid
       end
 

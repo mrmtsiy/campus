@@ -1,7 +1,7 @@
 FactoryBot.define do
   factory :comment do
     comment {'コメントです'}
-    user
+    user    { post.user }
     post
   end
 end

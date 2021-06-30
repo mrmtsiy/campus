@@ -80,8 +80,10 @@
 <div class="card">
   <div class="card-content">
     <div class="comment">
-      <strong>@<%= comment.user.username %></strong>
-      <small><%= time_ago_in_words(comment.created_at) %>前</small>
+      <%= link_to user_path(@user) do %>
+        <strong>@<%= comment.user.username %></strong>
+      <% end %>
+      <small><%= time_ago_in_words(comment.created_at, include_seconds: true) %>前</small>
       <p><%= comment.comment %></p>
       <% if comment.user.id == current_user.id %>
         <%= link_to "削除", post_comment_path(@post, comment), method: :delete %>

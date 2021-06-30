@@ -14,8 +14,7 @@ class CommentsController < ApplicationController
     else
       @post_new = Post.new
       @comments = @post.comments
-      flash[:alert] = "コメントを入力してください"
-      redirect_to new_post_comment_path
+      redirect_to new_post_comment_path, alert: "コメントを入力してください(1~100文字以内)"
     end
   end
 
