@@ -37,6 +37,10 @@
           <div class="actions">
             <%= f.submit "ログイン", class: "button is-success" %>
           </div>
+          <br>
+          <div class="actions">
+            <%= link_to 'ゲストログイン（閲覧用）', users_guest_sign_in_path, method: :post, class: 'button is-warning' %>
+          </div>
         <% end %>
         <br>
         <%= render "devise/shared/links" %>

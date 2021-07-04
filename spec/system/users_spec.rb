@@ -113,5 +113,40 @@ RSpec.describe "Users", js: true, type: :system do
 
       end
     end
+
+    describe "ゲストユーザー機能" do
+      before do
+        #ゲストユーザーでログインする
+        visit new_user_session_path
+        click_on "ゲストログイン（閲覧用）"
+      end
+
+      it "ゲストユーザーでログイン" do
+        #現在のページがroot_pathか確認
+        expect(current_path).to eq root_path
+        #flashメッセージ "ゲストユーザーとしてログインしました。"
+        expect(page).to have_content 'ゲストユーザーとしてログインしました。'
+      end
+
+      it "ゲストユーザーの削除失敗" do
+        #ユーザー編集画面へ遷移
+        visit edit_user_registration_path(user)
+        #削除ボタンをクリック
+        click_on "削除"
+        #flashメッセージ "ゲストユーザーの更新・削除はできません。"
+        expect(page).to have_content 'ゲストユーザーの更新・削除はできません。'
+      end
+
+      it "ゲストユーザーの編集失敗" do
+        #ユーザー編集画面へ遷移
+        visit edit_user_registration_path(user)
+        #名前を変更
+        fill_in "ユーザー名",	with: nil
+        #更新ボタンをクリック
+        click_on "更新する"
+        #flashメッセージ "ゲストユーザーの更新・削除はできません。"
+        expect(page).to have_content 'ゲストユーザーの更新・削除はできません。'
+      end
+    end
   end
 end

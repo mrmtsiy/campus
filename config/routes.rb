@@ -4,8 +4,13 @@ Rails.application.routes.draw do
   mount RailsAdmin::Engine => '/admin', as: 'rails_admin'
   devise_for :users, controllers: {
       sessions: 'users/sessions',
-      registrations: 'users/registrations'
+      registrations: 'users/registrations',
+      passwords: 'users/passwords'
     }
+  devise_scope :user do
+    post 'users/guest_sign_in', to: 'users/sessions#guest_sign_in'
+  end
+
   root to: "home#index"
   resources :users do
     resource :follow
@@ -21,6 +26,6 @@ Rails.application.routes.draw do
     end
   end
   resources :contacts, only: [:new, :create] do
-    get "/thanks" => "contacts#thanks"
+    get "/thanks", to: "contacts#thanks"
   end
 end
