@@ -38,3 +38,5 @@ yarn-debug.log*
 /config/database.yml
 docker-compose.yml
 config/initializers/rails_admin.rb
+
+app/mailers

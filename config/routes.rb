@@ -20,4 +20,7 @@ Rails.application.routes.draw do
       get 'timeline'
     end
   end
+  resources :contacts, only: [:new, :create] do
+    get "/thanks" => "contacts#thanks"
+  end
 end

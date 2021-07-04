@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_06_29_104004) do
+ActiveRecord::Schema.define(version: 2021_07_03_063657) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -60,6 +60,13 @@ ActiveRecord::Schema.define(version: 2021_06_29_104004) do
     t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
+  create_table "contacts", force: :cascade do |t|
+    t.string "name"
+    t.text "message"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "follows", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "target_user_id", null: false
@@ -92,6 +99,15 @@ ActiveRecord::Schema.define(version: 2021_06_29_104004) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.integer "user_id"
+  end
+
+  create_table "reposts", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "post_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+    t.index ["post_id"], name: "index_reposts_on_post_id"
+    t.index ["user_id"], name: "index_reposts_on_user_id"
   end
 
   create_table "taggings", id: :serial, force: :cascade do |t|
@@ -144,5 +160,7 @@ ActiveRecord::Schema.define(version: 2021_06_29_104004) do
   add_foreign_key "follows", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "reposts", "posts"
+  add_foreign_key "reposts", "users"
   add_foreign_key "taggings", "tags"
 end
