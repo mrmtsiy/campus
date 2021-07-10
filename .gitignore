@@ -40,3 +40,5 @@ docker-compose.yml
 config/initializers/rails_admin.rb
 
 app/mailers
+
+.env

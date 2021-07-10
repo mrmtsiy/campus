@@ -18,6 +18,8 @@ class User < ApplicationRecord
 
 #コメント機能の関連付け
   has_many :comments, dependent: :destroy
+#お問い合わせ昨日の関連付け
+  has_many :contacts, dependent: :destroy
 
   validates :username, presence: true
   validates :email, presence: true, uniqueness: true
