@@ -14,15 +14,19 @@ RSpec.describe Contact, type: :model do
     context 'お問い合わせが送信できない場合' do
       it 'nameが空では送信できない' do
         @contact.name = nil
-        @contact.valid?
-        expect(page).to have_content('お問い合わせの送信に失敗しました')
+        expect(@contact).to be_invalid
       end
 
       it 'messageが空では送信できない' do
         @contact.message = nil
-        @contact.valid?
-        expect(page).to have_content('お問い合わせの送信に失敗しました')
+        expect(@contact).to be_invalid
       end
+
+      it 'emailが空では送信できない' do
+        @contact.email = nil
+        expect(@contact).to be_invalid
+      end
+
     end
   end
 end
