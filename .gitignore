@@ -35,10 +35,4 @@
 yarn-debug.log*
 .yarn-integrity
 
-/config/database.yml
-docker-compose.yml
-config/initializers/rails_admin.rb
-
-app/mailers
-
 .env
